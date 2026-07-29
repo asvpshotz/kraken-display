@@ -64,11 +64,11 @@ body {
 }
 
 .bar {
-    width: 180px;
-    height: 10px;
+    width: 200px;
+    height: 22px;
     margin-top: 22px;
     background: #A3B29A;
-    border-radius: 2px;
+    border-radius: 0px;
     overflow: hidden;
 }
 
