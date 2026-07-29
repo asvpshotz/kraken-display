@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    width: 320px;
+    height: 320px;
+    overflow: hidden;
+    background: #DCE5D7;
+    color: #1E211E;
+    font-family: "Inter", Arial, sans-serif;
+}
+
+.screen {
+    width: 320px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,0.18),
+            transparent 70%
+        ),
+        linear-gradient(
+            135deg,
+            #DCE5D7,
+            #D5DFD0
+        );
+
+    position: relative;
+}
+
+/* subtle LCD grain */
+.screen::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.08;
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            rgba(0,0,0,.15) 0px,
+            rgba(0,0,0,.15) 1px,
+            transparent 1px,
+            transparent 3px
+        );
+    pointer-events: none;
+}
+
+.label {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.temperature {
+    font-size: 105px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -5px;
+}
+
+.bar {
+    width: 190px;
+    height: 8px;
+    margin-top: 22px;
+    background: #B7C2B4;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.fill {
+    width: 25%;
+    height: 100%;
+    background: #343A34;
+    border-radius: 10px;
+}
+
+.stats {
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
