@@ -7,7 +7,7 @@ body {
     width: 320px;
     height: 320px;
     overflow: hidden;
-    background: #C9D6C1;
+    background: #BFCDB7;
     color: #1E211E;
     font-family: "Inter", Arial, sans-serif;
 }
@@ -29,7 +29,7 @@ body {
         linear-gradient(
             135deg,
             #C9D6C1,
-            #BECDB6
+            #B3C2AB
         );
 
     position: relative;
