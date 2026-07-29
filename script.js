@@ -1,27 +1,49 @@
-const API = "http://localhost:8085/data.json";
+const API = "http://YOUR_PC_IP:8085/data.json";
+
+function findSensor(obj, name) {
+    if (obj.Text === name && obj.Value) {
+        return obj.Value;
+    }
+
+    if (obj.Children) {
+        for (const child of obj.Children) {
+            const result = findSensor(child, name);
+            if (result) return result;
+        }
+    }
+
+    return null;
+}
 
 async function updateSensors() {
     try {
         const response = await fetch(API);
         const data = await response.json();
 
-        let cpuTemp = data["CPU (Tctl/Tdie)"] || 0;
-        let cpuLoad = data["CPU Total"] || 0;
+        let cpuTemp = findSensor(data, "CPU (Tctl/Tdie)");
+        let gpuTemp = findSensor(data, "GPU Core");
+        let cpuLoad = findSensor(data, "CPU Total");
 
-        document.querySelector(".temperature").textContent =
-            Math.round(cpuTemp) + "°";
+        if (cpuTemp) {
+            cpuTemp = parseFloat(cpuTemp);
+            document.querySelector(".temperature").textContent =
+                Math.round(cpuTemp) + "°";
+        }
 
-        document.querySelector(".stats").innerHTML =
-            "LOAD&nbsp;&nbsp;" + Math.round(cpuLoad) + "%";
+        if (cpuLoad) {
+            cpuLoad = parseFloat(cpuLoad);
 
-        document.querySelector(".fill").style.width =
-            Math.min(cpuLoad, 100) + "%";
+            document.querySelector(".fill").style.width =
+                Math.min(cpuLoad,100) + "%";
 
-    } catch (error) {
-        console.log("Sensor connection failed", error);
+            document.querySelector(".stats").innerHTML =
+                "LOAD&nbsp;&nbsp;" + Math.round(cpuLoad) + "%";
+        }
+
+    } catch(error) {
+        console.log(error);
     }
 }
 
 updateSensors();
-
 setInterval(updateSensors, 2000);
