@@ -1,4 +1,4 @@
-const API = "http://YOUR_PC_IP:8085/data.json";
+const API = "192.168.2.11:8085/data.json";
 
 function findSensor(obj, name) {
     if (obj.Text === name && obj.Value) {
