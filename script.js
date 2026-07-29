@@ -1,31 +1,27 @@
-// Kraken Z63 LCD demo script
-// Values can later be connected to live hardware data
+const API = "http://localhost:8085/data.json";
 
-let temp = 44;
-let load = 6;
+async function updateSensors() {
+    try {
+        const response = await fetch(API);
+        const data = await response.json();
 
-function updateDisplay() {
-    const tempElement = document.querySelector(".temperature");
-    const loadElement = document.querySelector(".stats");
-    const barElement = document.querySelector(".fill");
+        let cpuTemp = data["CPU (Tctl/Tdie)"] || 0;
+        let cpuLoad = data["CPU Total"] || 0;
 
-    tempElement.textContent = temp + "°";
-    loadElement.innerHTML = "LOAD&nbsp;&nbsp;" + String(load).padStart(2, "0") + "%";
-    barElement.style.width = load + "%";
+        document.querySelector(".temperature").textContent =
+            Math.round(cpuTemp) + "°";
+
+        document.querySelector(".stats").innerHTML =
+            "LOAD&nbsp;&nbsp;" + Math.round(cpuLoad) + "%";
+
+        document.querySelector(".fill").style.width =
+            Math.min(cpuLoad, 100) + "%";
+
+    } catch (error) {
+        console.log("Sensor connection failed", error);
+    }
 }
 
-// Small demo animation
-setInterval(() => {
+updateSensors();
 
-    temp += Math.random() > 0.5 ? 1 : -1;
-
-    if (temp < 35) temp = 35;
-    if (temp > 75) temp = 75;
-
-    load = Math.floor(Math.random() * 40) + 5;
-
-    updateDisplay();
-
-}, 3000);
-
-updateDisplay();
+setInterval(updateSensors, 2000);
