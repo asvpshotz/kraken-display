@@ -8,7 +8,7 @@ body {
     width: 320px;
     height: 320px;
     overflow: hidden;
-    background: #BFCDB7;
+    background: #B4C5A8;
     color: #1E211E;
     font-family: "Roboto Condensed", sans-serif;
 }
@@ -30,7 +30,7 @@ body {
         linear-gradient(
             135deg,
             #C9D6C1,
-            #B3C2AB
+            #A9B99D
         );
 
     position: relative;
@@ -56,15 +56,15 @@ body {
 .label {
     font-size: 18px;
     font-weight: 600;
-    letter-spacing: 3px;
+    letter-spacing: 1.5px;
     margin-bottom: 10px;
 }
 
 .temperature {
     font-size: 105px;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1;
-    letter-spacing: -5px;
+    letter-spacing: -2px;
 }
 
 .bar {
