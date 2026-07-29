@@ -16,21 +16,17 @@ body {
 .screen {
     width: 320px;
     height: 320px;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
     background:
-        radial-gradient(
-            circle at center,
-            rgba(255,255,255,0.18),
-            transparent 70%
-        ),
         linear-gradient(
             135deg,
-            #C9D6C1,
-            #A9B99D
+            #AABCA0,
+            #9EAF94
         );
 
     position: relative;
@@ -41,7 +37,7 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-    opacity: 0.08;
+    opacity: 0.04;
     background-image:
         repeating-linear-gradient(
             0deg,
@@ -68,19 +64,19 @@ body {
 }
 
 .bar {
-    width: 190px;
-    height: 8px;
+    width: 175px;
+    height: 4px;
     margin-top: 22px;
-    background: #B7C2B4;
-    border-radius: 10px;
+    background: #899684;
+    border-radius: 0px;
     overflow: hidden;
 }
 
 .fill {
     width: 25%;
     height: 100%;
-    background: #343A34;
-    border-radius: 10px;
+    background: #303630;
+    border-radius: 0px;
 }
 
 .stats {
