@@ -7,7 +7,7 @@ body {
     width: 320px;
     height: 320px;
     overflow: hidden;
-    background: #DCE5D7;
+    background: #C9D6C1;
     color: #1E211E;
     font-family: "Inter", Arial, sans-serif;
 }
@@ -28,8 +28,8 @@ body {
         ),
         linear-gradient(
             135deg,
-            #DCE5D7,
-            #D5DFD0
+            #C9D6C1,
+            #BECDB6
         );
 
     position: relative;
