@@ -23,9 +23,10 @@ body {
     align-items: center;
 
     background:
-        radial-gradient(
-            circle at center,
-            rgba(255,255,255,0.10),
+         radial-gradient(
+        ellipse at center,
+        #B9C8AE 35%,
+        #9EAF94 100%),
             transparent 65%
         ),
         linear-gradient(
@@ -37,7 +38,8 @@ body {
     position: relative;
 
     box-shadow:
-        inset 0 0 35px rgba(45,55,45,0.18);
+    inset 0 0 80px rgba(40,55,40,0.35),
+    inset 0 0 25px rgba(0,0,0,0.15);
 }
 
 /* subtle LCD grain */
