@@ -20,7 +20,7 @@ async function updateSensors() {
         const response = await fetch(API);
         const data = await response.json();
 
-        let cpuTemp = findSensor(data, "CPU (Tctl/Tdie)");
+        let cpuTemp = findSensor(data, "Core (Tctl/Tdie)");
         let gpuTemp = findSensor(data, "GPU Core");
         let cpuLoad = findSensor(data, "CPU Total");
 
